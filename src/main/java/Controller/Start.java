@@ -10,6 +10,8 @@ import java.io.IOException;
 public class Start extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            request.setAttribute("score","2");
+            getServletContext().getRequestDispatcher("/jsp-start").forward(request,response);
 
     }
 

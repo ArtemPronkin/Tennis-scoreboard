@@ -11,8 +11,12 @@
         <servlet-name>Start</servlet-name>
         <url-pattern>/start</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>jsp-start</servlet-name>
+        <jsp-file>/start.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
-                <servlet-name>jsp-servlet</servlet-name>
-                <url-pattern>*.jsp</url-pattern>
+                <servlet-name>jsp-start</servlet-name>
+                <url-pattern>/jsp-start</url-pattern>
     </servlet-mapping>
 </web-app>

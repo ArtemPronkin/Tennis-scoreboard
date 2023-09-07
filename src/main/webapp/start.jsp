@@ -12,5 +12,16 @@
 </head>
 <body>
 
+<form action="${pageContext.request.contextPath}/start" method="GET">
+
+    Первый игрок: <input type="text" name="player1">
+    <br />
+    Второй игрок: <input type="text" name="player2" />
+    <br />
+    <input type="submit" value="Старт" />
+
+</form>
+
+
 </body>
 </html>
