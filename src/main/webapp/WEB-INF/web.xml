@@ -4,12 +4,12 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
     <servlet>
-        <servlet-name>Start</servlet-name>
-        <servlet-class>Controller.Start</servlet-class>
+        <servlet-name>NewMatch</servlet-name>
+        <servlet-class>Controller.NewMatch</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Start</servlet-name>
-        <url-pattern>/start</url-pattern>
+        <servlet-name>NewMatch</servlet-name>
+        <url-pattern>/new-match</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>jsp-start</servlet-name>
@@ -18,5 +18,21 @@
     <servlet-mapping>
                 <servlet-name>jsp-start</servlet-name>
                 <url-pattern>/jsp-start</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MatchScore</servlet-name>
+        <servlet-class>Controller.MatchScore</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MatchScore</servlet-name>
+        <url-pattern>/match-score/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>match-jsp</servlet-name>
+        <jsp-file>/match.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>match-jsp</servlet-name>
+        <url-pattern>/match.jsp</url-pattern>
     </servlet-mapping>
 </web-app>

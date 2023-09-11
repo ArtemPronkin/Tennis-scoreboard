@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/start" method="GET">
+<form action="${pageContext.request.contextPath}/new-match" method="POST">
 
     Первый игрок: <input type="text" name="player1">
     <br />
