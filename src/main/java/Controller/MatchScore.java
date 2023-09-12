@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.Utils.GameRepository;
+import Score.ExceptionScore;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -15,17 +16,38 @@ public class MatchScore extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameMatch = request.getParameter("uuid");
-        var uuid = UUID.fromString(nameMatch);
-        if (!GameRepository.haveMatch(uuid)){
-            response.sendRedirect(request.getContextPath()+"/new-match");
+        if (nameMatch.isEmpty() || !GameRepository.haveMatch(UUID.fromString(nameMatch))) {
+            response.sendRedirect(request.getContextPath() + "/new-match");
             return;
         }
-        var match = GameRepository.getMatch(UUID.fromString(nameMatch));
-        getServletContext().getRequestDispatcher("/match.jsp").forward(request,response);
+        var uuid = UUID.fromString(nameMatch);
+        var match = GameRepository.getMatch(uuid);
+        request.setAttribute("uuid", nameMatch);
+        request.setAttribute("match", match);
+        request.setAttribute("player1",GameRepository.getPlayer1(uuid));
+        request.setAttribute("player2",GameRepository.getPlayer2(uuid));
+        getServletContext().getRequestDispatcher("/match.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nameMatch = request.getParameter("name");
+        String win = request.getParameter("win");
+        String nameMatch = request.getParameter("uuid");
+        if (nameMatch.isEmpty() || !GameRepository.haveMatch(UUID.fromString(nameMatch))) {
+            response.sendRedirect(request.getContextPath() + "/new-match");
+            return;
+        }
+        var match = GameRepository.getMatch(UUID.fromString(nameMatch));
+        try {
+            if (win.equals("player1")) {
+                match.pointWon(0);
+            }
+            if (win.equals("player2")) {
+                match.pointWon(1);
+            }
+        } catch (ExceptionScore e) {
+            response.getWriter().write(e.getMessage());
+        }
+        doGet(request,response);
     }
 }

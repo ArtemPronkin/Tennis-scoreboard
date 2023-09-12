@@ -20,13 +20,12 @@ public class NewMatch extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String player1 = request.getParameter("player1");
         String player2 = request.getParameter("player2");
-        System.out.println(player1+" "+player2);
 
-        if (!playerValid(player1)&&!playerValid(player2)){
+        if (!playerValid(player1)||!playerValid(player2)){
             response.sendRedirect(request.getContextPath()+"/new-match");
         }
         else{
-            response.sendRedirect(request.getContextPath()+"/match-score?uuid="+ GameRepository.createMatch(player1,player2));
+            response.sendRedirect(request.getContextPath()+"/match-score?uuid=" + GameRepository.createMatch(player1,player2));
         }
     }
 }

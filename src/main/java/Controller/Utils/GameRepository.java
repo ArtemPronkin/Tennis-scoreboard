@@ -9,6 +9,7 @@ import java.util.UUID;
 @Data
 public class GameRepository {
     private static HashMap<UUID, GameRepository> games= new HashMap<>();
+
     private String player1;
     private String player2;
     private MatchScore matchScore;
@@ -21,6 +22,12 @@ public class GameRepository {
 
     public static MatchScore getMatch(UUID uuid){
         return games.get(uuid).getMatchScore();
+    }
+    public static String getPlayer1(UUID uuid){
+        return games.get(uuid).getPlayer1();
+    }
+    public static String getPlayer2(UUID uuid){
+        return games.get(uuid).getPlayer2();
     }
     public static UUID createMatch(String player1,String player2){
         var uuid= UUID.randomUUID();
