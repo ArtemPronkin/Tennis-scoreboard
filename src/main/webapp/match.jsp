@@ -22,6 +22,7 @@
     }
 
     form {
+
         text-align: center;
     }
     </style>
@@ -51,7 +52,6 @@
         out.print("<h3>Выиграл игрок : "+request.getAttribute("player2") + " </h3>");
     }
     else out.print("<h3>Выиграл игрок : "+request.getAttribute("player1") + " </h3>");
-
 
 }%>
 
@@ -101,11 +101,12 @@
 <form action="${pageContext.request.contextPath}/match-score?uuid=${uuid}" method="POST">
     <%
         if (match.getState().equals(State.ONGOING)) {
-            out.print("<p><input type=\"submit\"  name=\"win\" value=\"player1\" ></p>\n" +
-                    "    <p><input type=\"submit\" name=\"win\" value=\"player2\" ></p>");
+            out.print("<p><button name=\"win\" value=\"player1\" type=\"submit\">Игрок 1 выиграл текущее очко</button></p>");
+            out.print("<p><button name=\"win\" value=\"player2\" type=\"submit\">Игрок 2 выиграл текущее очко</button></p>");
         } else {
-            out.print("<p><input type=\"submit\"  name=\"win\" value=\"Закончить матч\" ></p>\n");
+            out.print("<p><button name=\"win\" value=\"end\" type=\"submit\">Сохранить матч и выйти</button></p>");
         }
+
 
     %>
 
