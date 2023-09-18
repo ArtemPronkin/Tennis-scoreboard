@@ -18,13 +18,15 @@ public class Matches extends HttpServlet {
         if(page == null){
             page = "1";
         }
+        System.out.println(player);
         List<PageMatchesDTO> table = new ArrayList<>();
-        if (player == null){
+        if (player == null || player.length()==0){
             table = PageMatchesDTO.getPage(Integer.valueOf(page), 3);
         }
         else {
              table = PageMatchesDTO.getPageByName(Integer.valueOf(page), 3,player);
         }
+        request.setAttribute("player",player);
         request.setAttribute("table",table);
         request.setAttribute("page",page);
         getServletContext().getRequestDispatcher("/view/matches.jsp").forward(request, response);

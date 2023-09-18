@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    int numberPage = Integer.valueOf((String) request.getAttribute("page"));
+
     int sizePage = 3;
     List<PageMatchesDTO> table = (List<PageMatchesDTO>) request.getAttribute("table");
 
@@ -43,6 +43,7 @@
     <title>Таблица матчей</title>
 </head>
 <body>
+<h3>Поиск по игроку: ${player}</h3>
 <%  if (table.isEmpty()){
     out.print("<h3>Матчи с этим игроком не найдены</h3>");
 }else {
@@ -74,11 +75,15 @@
 }%>
 
 <div>
-<%  if (table.isEmpty()){
+<% String player = request.getParameter("player");
+    if (player==null){
+        player="";
+    }
+    if (table.isEmpty()){
 out.print("<div><button type=\"reset\" onclick=\"location.href='"+request.getContextPath()+"/matches'\">Ко всем матчам</button></div>");
 }else {
     for (int i = 0; i * sizePage < table.get(0).getTotalCount(); i++) {
-        out.print("<a href=?page=" + (i + 1) + ">" + (i + 1) + "</a>");
+        out.print("<a href=?page=" + (i + 1) + "&player=" +player.replace(' ','+')+ ">" + (i + 1) + "</a>");
     }
 }
  %>
