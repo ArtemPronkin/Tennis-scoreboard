@@ -1,15 +1,18 @@
-package Controller;
+package Controller.Servlets;
 
+import Controller.ServiceMatch.DAO.MatchDAO;
+import Controller.ServiceMatch.DAO.PlayerDAO;
+import Controller.ServiceMatch.Entity.Match;
+import Controller.ServiceMatch.Entity.Player;
+import Controller.ServiceMatch.Score.State;
 import Controller.Utils.GameRepository;
-import Score.ExceptionScore;
+import Controller.ServiceMatch.Score.ExceptionScore;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.util.UUID;
-
-import static Controller.Utils.Validator.playerValid;
 
 @WebServlet(name = "MatchScore", value = "/MatchScore")
 public class MatchScore extends HttpServlet {
@@ -26,7 +29,7 @@ public class MatchScore extends HttpServlet {
         request.setAttribute("match", match);
         request.setAttribute("player1",GameRepository.getPlayer1(uuid));
         request.setAttribute("player2",GameRepository.getPlayer2(uuid));
-        getServletContext().getRequestDispatcher("/match.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/view/match.jsp").forward(request, response);
     }
 
     @Override
@@ -45,8 +48,14 @@ public class MatchScore extends HttpServlet {
             if (win.equals("player2")) {
                 match.pointWon(1);
             }
+
         } catch (ExceptionScore e) {
             response.getWriter().write(e.getMessage());
+        }
+        if (win.equals("end")) {
+            GameRepository.endMatch(UUID.fromString(nameMatch));
+            response.sendRedirect(request.getContextPath()+"/");
+            return;
         }
         doGet(request,response);
     }

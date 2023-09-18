@@ -5,7 +5,7 @@
          version="5.0">
     <servlet>
         <servlet-name>NewMatch</servlet-name>
-        <servlet-class>Controller.NewMatch</servlet-class>
+        <servlet-class>Controller.Servlets.NewMatch</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewMatch</servlet-name>
@@ -21,7 +21,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>MatchScore</servlet-name>
-        <servlet-class>Controller.MatchScore</servlet-class>
+        <servlet-class>Controller.Servlets.MatchScore</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MatchScore</servlet-name>
@@ -35,4 +35,12 @@
         <servlet-name>match-jsp</servlet-name>
         <url-pattern>/match.jsp</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>Filter</filter-name>
+        <filter-class>Controller.Servlets.Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 </web-app>

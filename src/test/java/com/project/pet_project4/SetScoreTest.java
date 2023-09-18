@@ -1,8 +1,8 @@
 package com.project.pet_project4;
 
-import Score.ExceptionScore;
-import Score.SetScore;
-import Score.State;
+import Controller.ServiceMatch.Score.ExceptionScore;
+import Controller.ServiceMatch.Score.SetScore;
+import Controller.ServiceMatch.Score.State;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

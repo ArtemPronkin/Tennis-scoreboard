@@ -1,4 +1,4 @@
-package Score;
+package Controller.ServiceMatch.Score;
 
 import lombok.Getter;
 

@@ -1,12 +1,12 @@
-<%@ page import="Score.SetScore" %>
+<%@ page import="Controller.ServiceMatch.Score.SetScore" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Score.MatchScore" %>
-<%@ page import="Score.Score" %>
-<%@ page import="Score.State" %>
+<%@ page import="Controller.ServiceMatch.Score.MatchScore" %>
+<%@ page import="Controller.ServiceMatch.Score.Score" %>
+<%@ page import="Controller.ServiceMatch.Score.State" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Текущий матч</title>
     <style> table {
         width: 600px;
         border: 1px solid green;
@@ -19,10 +19,10 @@
 
     h3 {
         text-align: center;
+        margin-top: 15px;
     }
 
     form {
-
         text-align: center;
     }
     </style>
@@ -42,10 +42,9 @@
 <h3>Код матча ${uuid}</h3>
 <% if (match.getState().equals(State.ONGOING)) {
     out.print("<h3>Текущий сет: " + (curSet + 1) + "</h3>");
-    out.print("<h3>Идет игра</h3>");
     if (list.get(curSet).getState().equals(State.TIE_BREAK)) {
         out.print("<h3>Обьявлен Тай-Брейк</h3>");
-    }
+    }else out.print("<h3>Идет игра</h3>");
 } else {
     out.print("<h3>Матч завершен</h3>");
     if (match.getState().equals(State.PLAYER_ONE_WON)){

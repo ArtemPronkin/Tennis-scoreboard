@@ -1,5 +1,7 @@
-package Controller;
+package Controller.Servlets;
 
+import Controller.ServiceMatch.DAO.PlayerDAO;
+import Controller.ServiceMatch.Entity.Player;
 import Controller.Utils.GameRepository;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -13,7 +15,7 @@ import static Controller.Utils.Validator.playerValid;
 public class NewMatch extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/jsp-start").forward(request,response);
+        getServletContext().getRequestDispatcher("/view/start.jsp").forward(request,response);
     }
 
     @Override
@@ -25,7 +27,11 @@ public class NewMatch extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/new-match");
         }
         else{
-            response.sendRedirect(request.getContextPath()+"/match-score?uuid=" + GameRepository.createMatch(player1,player2));
+            PlayerDAO.create(new Player(player1.trim()));
+            PlayerDAO.create(new Player(player2.trim()));
+            response.sendRedirect(request.getContextPath()+"/match-score?uuid=" +
+                    GameRepository.createMatch(player1.trim(),player2.trim()));
+
         }
     }
 }

@@ -1,4 +1,4 @@
-package Score;
+package Controller.ServiceMatch.Score;
 
 public class GameScore extends Score<GameState>{
     @Override
