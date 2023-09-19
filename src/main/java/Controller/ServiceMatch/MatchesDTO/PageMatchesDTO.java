@@ -36,24 +36,17 @@ public class PageMatchesDTO {
 
     public static List<PageMatchesDTO> getPageByName(int pageNumber, int pageSize ,String player) {
         String query = """
-                select id,Player1,Player2,winner, Count(*)   Over () AS TotalCount from
-                (
-                (SELECT m.id id, P.name Player1 , p2.name Player2 , p3.name winner  from MATCHES M
-                
-                    join Players P on P.ID = M.PLAYER_1 and p.NAME = :name
+                select m.id id, P.name Player1 , p2.name Player2 , p3.name winner,Count(*)   Over () AS TotalCount
+                from (
+                select * from MATCHES
+                where player_1 = (select id  from PLAYERS p4 where name = :name)
+                   or player_2 = (select id  from PLAYERS p4 where name = :name)
+                ) as M
+                    join Players P on P.ID = M.PLAYER_1
                     join Players P2 on P2.ID = M.PLAYER_2
-                    join Players P3 on P3.ID = M.winner)
-                
-                UNION
-                
-                (SELECT m.id id, P.name Player1 , p2.name Player2 , p3.name winner
-                from MATCHES M
-                join Players P2 on P2.ID = M.PLAYER_2 and P2.NAME = :name
-                join Players P on P.ID = M.PLAYER_1
-                join Players P3 on P3.ID = M.winner)
-                )
+                    join Players P3 on P3.ID = M.winner
                 Offset (:pageNumber - 1) * :pagaSize Rows
-                    Fetch Next :pagaSize Rows Only;
+                    Fetch Next :pagaSize Rows Only ;
                 """;
 
         Transaction transaction = null;
