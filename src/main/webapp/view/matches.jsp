@@ -80,7 +80,7 @@
 
 <div>
     <% String player = request.getParameter("player");
-        if (player == null) {
+        if (player == null || player.length()==0) {
             player = "";
         } else {
             out.print("<h3>Поиск по игроку: " + player + "</h3>");

@@ -45,42 +45,42 @@ public class SessionFactoryUtil {
         PlayerDAO.create(player3);
         PlayerDAO.create(player4);
         MatchDAO.create(new Match(player3, player4, player4));
+        MatchDAO.create(new Match(player3, player4, player3));
         MatchDAO.create(new Match(player3, player4, player4));
-        MatchDAO.create(new Match(player3, player4, player4));
-        MatchDAO.create(new Match(player3, player4, player4));
+        MatchDAO.create(new Match(player3, player4, player3));
         MatchDAO.create(new Match(player3, player4, player4));
 
         Player player5 = new Player("Н. ДЖОКОВИЧ");
         Player player6 = new Player("М. ФУЧОВИЧ");
         PlayerDAO.create(player5);
         PlayerDAO.create(player6);
+        MatchDAO.create(new Match(player5, player6, player6));
         MatchDAO.create(new Match(player5, player6, player5));
-        MatchDAO.create(new Match(player5, player6, player5));
-        MatchDAO.create(new Match(player5, player6, player5));
+        MatchDAO.create(new Match(player5, player6, player6));
         MatchDAO.create(new Match(player5, player6, player5));
 
         Player player7 = new Player("К. ХАЧАНОВ");
         PlayerDAO.create(player7);
+        MatchDAO.create(new Match(player7, player5, player7));
         MatchDAO.create(new Match(player7, player5, player5));
-        MatchDAO.create(new Match(player7, player5, player5));
-        MatchDAO.create(new Match(player7, player5, player5));
+        MatchDAO.create(new Match(player7, player5, player7));
         MatchDAO.create(new Match(player7, player5, player5));
 
         Player player8 = new Player("К. РУУД");
         Player player9 = new Player("А. ЗВЕРЕВ");
         PlayerDAO.create(player8);
         PlayerDAO.create(player9);
+        MatchDAO.create(new Match(player8, player9, player8));
         MatchDAO.create(new Match(player8, player9, player9));
+        MatchDAO.create(new Match(player8, player9, player8));
         MatchDAO.create(new Match(player8, player9, player9));
-        MatchDAO.create(new Match(player8, player9, player9));
-        MatchDAO.create(new Match(player8, player9, player9));
-        MatchDAO.create(new Match(player8, player9, player9));
+        MatchDAO.create(new Match(player8, player9, player8));
 
         Player player10 = new Player("Ф. ТИАФО");
         PlayerDAO.create(player10);
+        MatchDAO.create(new Match(player3, player10, player10));
         MatchDAO.create(new Match(player3, player10, player3));
-        MatchDAO.create(new Match(player3, player10, player3));
-        MatchDAO.create(new Match(player3, player10, player3));
+        MatchDAO.create(new Match(player3, player10, player10));
         MatchDAO.create(new Match(player3, player10, player3));
     }
 

@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Matches")
+@Table(name = "Matches", indexes = {@Index(name = "player_1_Index", columnList = "player_1"),
+                                    @Index(name = "player_2_Index", columnList = "player_2") })
 @Data
 @NoArgsConstructor
 @ToString

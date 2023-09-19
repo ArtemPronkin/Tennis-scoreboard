@@ -18,7 +18,6 @@ public class Matches extends HttpServlet {
         if(page == null){
             page = "1";
         }
-        System.out.println(player);
         List<PageMatchesDTO> table = new ArrayList<>();
         if (player == null || player.length()==0){
             table = PageMatchesDTO.getPage(Integer.valueOf(page), 3);
