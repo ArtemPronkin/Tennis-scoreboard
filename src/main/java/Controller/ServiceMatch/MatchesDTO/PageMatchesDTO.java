@@ -112,20 +112,4 @@ public class PageMatchesDTO {
         }
         return list;
     }
-
-//    public DTOMatch (Match match){
-//        winner = match.getWinner().getName();
-//        if (match.getPlayer1().equals(match.getWinner())){
-//            loose = match.getPlayer2().getName();
-//        }else {loose = match.getPlayer1().getName();}
-//    }
-//    public static List<DTOMatch> getDTOMatchlist(List<Match> listEntity){
-//        List<DTOMatch> listDTO = new ArrayList<>();
-//        for (Match match:
-//             listEntity) {
-//            listDTO.add(new DTOMatch(match));
-//        }
-//        return listDTO;
-//    }
-
 }
