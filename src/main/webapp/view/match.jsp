@@ -1,8 +1,8 @@
-<%@ page import="Controller.ServiceMatch.Score.SetScore" %>
+<%@ page import="App.ServiceMatch.MatchesScoreCalculations.SetScore" %>
 <%@ page import="java.util.List" %>
-<%@ page import="Controller.ServiceMatch.Score.MatchScore" %>
-<%@ page import="Controller.ServiceMatch.Score.Score" %>
-<%@ page import="Controller.ServiceMatch.Score.State" %>
+<%@ page import="App.ServiceMatch.MatchesScoreCalculations.MatchScore" %>
+<%@ page import="App.ServiceMatch.MatchesScoreCalculations.Score" %>
+<%@ page import="App.ServiceMatch.MatchesScoreCalculations.State" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

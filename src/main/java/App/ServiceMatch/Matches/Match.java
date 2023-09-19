@@ -1,6 +1,7 @@
-package Controller.ServiceMatch.Entity;
+package App.ServiceMatch.Matches;
 
 
+import App.ServiceMatch.Player.Player;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

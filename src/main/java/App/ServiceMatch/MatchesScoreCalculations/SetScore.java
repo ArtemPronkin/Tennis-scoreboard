@@ -1,6 +1,6 @@
-package Controller.ServiceMatch.Score;
+package App.ServiceMatch.MatchesScoreCalculations;
 
-import static Controller.ServiceMatch.Score.State.*;
+import static App.ServiceMatch.MatchesScoreCalculations.State.*;
 
 public class SetScore extends Score<Integer> {
     @Override

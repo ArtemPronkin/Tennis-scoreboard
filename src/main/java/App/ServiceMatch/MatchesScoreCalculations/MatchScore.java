@@ -1,4 +1,4 @@
-package Controller.ServiceMatch.Score;
+package App.ServiceMatch.MatchesScoreCalculations;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import java.util.Arrays;
 import java.util.List;
 
-import static Controller.ServiceMatch.Score.State.*;
+import static App.ServiceMatch.MatchesScoreCalculations.State.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

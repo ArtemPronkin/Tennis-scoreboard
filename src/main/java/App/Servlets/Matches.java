@@ -1,6 +1,6 @@
-package Controller.Servlets;
+package App.Servlets;
 
-import Controller.ServiceMatch.MatchesDTO.PageMatchesDTO;
+import App.ServiceMatch.Matches.PageMatchesDTO;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

@@ -1,12 +1,7 @@
-package Controller.Servlets;
+package App.Servlets;
 
-import Controller.ServiceMatch.DAO.MatchDAO;
-import Controller.ServiceMatch.DAO.PlayerDAO;
-import Controller.ServiceMatch.Entity.Match;
-import Controller.ServiceMatch.Entity.Player;
-import Controller.ServiceMatch.Score.State;
-import Controller.Utils.GameRepository;
-import Controller.ServiceMatch.Score.ExceptionScore;
+import App.ServiceMatch.Matches.GameRepository;
+import App.ServiceMatch.MatchesScoreCalculations.ExceptionScore;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

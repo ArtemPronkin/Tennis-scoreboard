@@ -1,6 +1,6 @@
-package Controller.ServiceMatch.MatchesDTO;
+package App.ServiceMatch.Matches;
 
-import Controller.Utils.SessionFactoryUtil;
+import App.Utils.SessionFactoryUtil;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

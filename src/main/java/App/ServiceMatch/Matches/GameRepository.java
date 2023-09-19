@@ -1,10 +1,8 @@
-package Controller.Utils;
+package App.ServiceMatch.Matches;
 
-import Controller.ServiceMatch.DAO.MatchDAO;
-import Controller.ServiceMatch.DAO.PlayerDAO;
-import Controller.ServiceMatch.Entity.Match;
-import Controller.ServiceMatch.Score.MatchScore;
-import Controller.ServiceMatch.Score.State;
+import App.ServiceMatch.Player.PlayerDAO;
+import App.ServiceMatch.MatchesScoreCalculations.MatchScore;
+import App.ServiceMatch.MatchesScoreCalculations.State;
 import lombok.Data;
 
 import java.util.HashMap;

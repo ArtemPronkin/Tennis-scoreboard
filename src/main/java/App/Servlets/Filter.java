@@ -1,7 +1,6 @@
-package Controller.Servlets;
+package App.Servlets;
 
 import jakarta.servlet.*;
-import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 
