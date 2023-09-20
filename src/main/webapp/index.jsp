@@ -8,6 +8,7 @@
             text-align: center;
             margin-top: 15px;
         }
+
         div {
             text-align: center;
             margin-top: 5px;

@@ -19,7 +19,7 @@
         margin: auto;
     }
 
-    td,th {
+    td, th {
         text-align: center;
         padding: 5px;
         border: 1px solid green;
@@ -79,7 +79,7 @@
 
 <div>
     <% String player = request.getParameter("player");
-        if (player == null || player.length()==0) {
+        if (player == null || player.length() == 0) {
             player = "";
         } else {
             out.print("<h3>Поиск по игроку: " + player + "</h3>");
@@ -95,7 +95,8 @@
 </div>
 <div>
     <button type="reset" onclick="location.href='${pageContext.request.contextPath}/'">На главную</button>
-    <button type="reset" onclick="location.href='${pageContext.request.contextPath}/matches'">Отобразить все матчи</button>
+    <button type="reset" onclick="location.href='${pageContext.request.contextPath}/matches'">Отобразить все матчи
+    </button>
 </div>
 <div>
     <form action="${pageContext.request.contextPath}/matches" method="GET">
@@ -103,7 +104,9 @@
         <label>Поиск по имени:
             <input type="text" name="player" required title="Введите имя игрока"><br/>
         </label>
-        <div><button type="submit">поиск</button></div>
+        <div>
+            <button type="submit">поиск</button>
+        </div>
     </form>
 </div>
 </body>

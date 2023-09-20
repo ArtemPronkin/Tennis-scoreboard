@@ -20,25 +20,25 @@ import java.util.List;
 public class PageMatchesDTO {
     @Id
     private Long id;
-    @Column (name = "player1")
+    @Column(name = "player1")
     private String Player1;
-    @Column (name = "player2")
+    @Column(name = "player2")
     private String Player2;
-    @Column (name = "winner")
+    @Column(name = "winner")
     private String winner;
-    @Column (name = "TotalCount")
+    @Column(name = "TotalCount")
     private int TotalCount;
 
-   final public static  int  sizePage = 3;
+    final public static int sizePage = 3;
 
 
-    public PageMatchesDTO(String player1, String player2, String winner,String player) {
+    public PageMatchesDTO(String player1, String player2, String winner, String player) {
         Player1 = player1;
         Player2 = player2;
         this.winner = winner;
     }
 
-    public static List<PageMatchesDTO> getPageByName(int pageNumber, int pageSize ,String player) {
+    public static List<PageMatchesDTO> getPageByName(int pageNumber, int pageSize, String player) {
         String query = """
                 select m.id id, P.name Player1 , p2.name Player2 , p3.name winner,Count(*)   Over () AS TotalCount
                 from (
@@ -59,19 +59,19 @@ public class PageMatchesDTO {
 
         try {
             transaction = session.beginTransaction();
-            var nativeQuery= session.createNativeQuery(query, PageMatchesDTO.class);
-            nativeQuery.setParameter("pagaSize",pageSize);
-            nativeQuery.setParameter("pageNumber",pageNumber);
-            nativeQuery.setParameter("name",player);
+            var nativeQuery = session.createNativeQuery(query, PageMatchesDTO.class);
+            nativeQuery.setParameter("pagaSize", pageSize);
+            nativeQuery.setParameter("pageNumber", pageNumber);
+            nativeQuery.setParameter("name", player);
 
-            list =  nativeQuery.getResultList();
+            list = nativeQuery.getResultList();
 
-        }catch (RuntimeException e){
-            if (transaction!=null){
+        } catch (RuntimeException e) {
+            if (transaction != null) {
                 transaction.rollback();
                 e.printStackTrace();
             }
-        }finally {
+        } finally {
             session.close();
         }
         return list;
@@ -86,7 +86,7 @@ public class PageMatchesDTO {
         return id;
     }
 
-    public static List<PageMatchesDTO> getPage (int pageNumber, int pageSize){
+    public static List<PageMatchesDTO> getPage(int pageNumber, int pageSize) {
         String query = """
                 SELECT m.id id, P.name Player1 , p2.name Player2 , p3.name winner ,Count(*)   Over () AS TotalCount from Matches M join Players P on P.ID = M.PLAYER_1
                                                                              join Players P2 on P2.ID = M.PLAYER_2
@@ -101,17 +101,17 @@ public class PageMatchesDTO {
 
         try {
             transaction = session.beginTransaction();
-            var nativeQuery= session.createNativeQuery(query, PageMatchesDTO.class);
-            nativeQuery.setParameter("pagaSize",pageSize);
-            nativeQuery.setParameter("pageNumber",pageNumber);
-            list =  nativeQuery.getResultList();
+            var nativeQuery = session.createNativeQuery(query, PageMatchesDTO.class);
+            nativeQuery.setParameter("pagaSize", pageSize);
+            nativeQuery.setParameter("pageNumber", pageNumber);
+            list = nativeQuery.getResultList();
 
-        }catch (RuntimeException e){
-            if (transaction!=null){
+        } catch (RuntimeException e) {
+            if (transaction != null) {
                 transaction.rollback();
                 e.printStackTrace();
             }
-        }finally {
+        } finally {
             session.close();
         }
         return list;
