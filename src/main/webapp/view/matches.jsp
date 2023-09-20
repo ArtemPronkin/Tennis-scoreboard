@@ -3,7 +3,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 
-    int sizePage = 3;
     List<PageMatchesDTO> table = (List<PageMatchesDTO>) request.getAttribute("table");
 
 %>
@@ -88,7 +87,7 @@
         if (table.isEmpty()) {
             out.print("<div><button type=\"reset\" onclick=\"location.href='" + request.getContextPath() + "/matches'\">Ко всем матчам</button></div>");
         } else {
-            for (int i = 0; i * sizePage < table.get(0).getTotalCount(); i++) {
+            for (int i = 0; i * PageMatchesDTO.sizePage < table.get(0).getTotalCount(); i++) {
                 out.print("<a href=?page=" + (i + 1) + "&player=" + player.replace(' ', '+') + ">" + (i + 1) + "</a>");
             }
         }

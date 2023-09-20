@@ -20,9 +20,10 @@ public class Matches extends HttpServlet {
         }
         List<PageMatchesDTO> table = new ArrayList<>();
         if (player == null || player.length()==0){
-            table = PageMatchesDTO.getPage(Integer.valueOf(page), 3);
+            table = PageMatchesDTO.getPage(Integer.valueOf(page), PageMatchesDTO.sizePage);
         }
         else {
+
              table = PageMatchesDTO.getPageByName(Integer.valueOf(page), 3,player);
         }
         request.setAttribute("player",player);

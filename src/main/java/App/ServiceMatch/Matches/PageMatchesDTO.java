@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Getter
 @NoArgsConstructor
 public class PageMatchesDTO {
     @Id
@@ -26,6 +28,8 @@ public class PageMatchesDTO {
     private String winner;
     @Column (name = "TotalCount")
     private int TotalCount;
+
+   final public static  int  sizePage = 3;
 
 
     public PageMatchesDTO(String player1, String player2, String winner,String player) {
