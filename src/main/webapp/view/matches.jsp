@@ -79,6 +79,7 @@
 
 <div>
     <% String player = request.getParameter("player");
+    <% int pageSize = (int) request.getAttribute("pageSize");
         if (player == null || player.length() == 0) {
             player = "";
         } else {
@@ -87,7 +88,7 @@
         if (table.isEmpty()) {
             out.print("<div><button type=\"reset\" onclick=\"location.href='" + request.getContextPath() + "/matches'\">Ко всем матчам</button></div>");
         } else {
-            for (int i = 0; i * PageMatchesDTO.sizePage < table.get(0).getTotalCount(); i++) {
+            for (int i = 0; i * pageSize < table.get(0).getTotalCount(); i++) {
                 out.print("<a href=?page=" + (i + 1) + "&player=" + player.replace(' ', '+') + ">" + (i + 1) + "</a>");
             }
         }

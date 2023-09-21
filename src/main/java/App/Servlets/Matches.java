@@ -19,8 +19,9 @@ public class Matches extends HttpServlet {
             page = "1";
         }
         List<PageMatchesDTO> table = new ArrayList<>();
+        int sizePage = 3;
         if (player == null || player.length()==0){
-            table = PageMatchesDTO.getPage(Integer.valueOf(page), PageMatchesDTO.sizePage);
+            table = PageMatchesDTO.getPage(Integer.valueOf(page), sizePage);
         }
         else {
 
@@ -29,6 +30,7 @@ public class Matches extends HttpServlet {
         request.setAttribute("player",player);
         request.setAttribute("table",table);
         request.setAttribute("page",page);
+        request.setAttribute("sizePage",sizePage);
         getServletContext().getRequestDispatcher("/view/matches.jsp").forward(request, response);
 
     }

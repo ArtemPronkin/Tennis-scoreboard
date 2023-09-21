@@ -29,8 +29,6 @@ public class PageMatchesDTO {
     @Column(name = "TotalCount")
     private int TotalCount;
 
-    final public static int sizePage = 3;
-
 
     public PageMatchesDTO(String player1, String player2, String winner, String player) {
         Player1 = player1;
