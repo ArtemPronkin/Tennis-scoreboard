@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Players", indexes = {@Index(name = "nameIndex", columnList = "Name")})
+@Table(name = "Players", indexes = {@Index(name = "nameIndex", columnList = "name")})
 @Data
 @NoArgsConstructor
 @ToString
