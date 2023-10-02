@@ -33,7 +33,7 @@ public class GameRepository {
         if (INSTANCE.containsKey(uuid))return INSTANCE.get(uuid).getPlayer2();
         else return null;
     }
-    public static UUID createMatch(String player1,String player2){
+    public static synchronized UUID createMatch(String player1,String player2){
         var uuid = UUID.randomUUID();
         INSTANCE.put(uuid,new GameRepository(player1,player2));
         return uuid;
