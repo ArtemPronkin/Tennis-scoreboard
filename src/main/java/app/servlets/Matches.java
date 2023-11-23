@@ -1,6 +1,7 @@
 package app.servlets;
 
 import app.serviceMatch.matches.PageMatchesDTO;
+import app.serviceMatch.player.PageDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @WebServlet(name = "Matches", value = "/matches")
 public class Matches extends HttpServlet {
+    PageDAO pageDAO = new PageDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getParameter("page");
@@ -21,11 +23,11 @@ public class Matches extends HttpServlet {
         List<PageMatchesDTO> table = new ArrayList<>();
         int sizePage = 3;
         if (player == null || player.length()==0){
-            table = PageMatchesDTO.getPage(Integer.valueOf(page), sizePage);
+            table = pageDAO.getPage(Integer.valueOf(page), sizePage);
         }
         else {
 
-             table = PageMatchesDTO.getPageByName(Integer.valueOf(page), 3,player);
+             table = pageDAO.getPageByName(Integer.valueOf(page), 3,player);
         }
         request.setAttribute("player",player);
         request.setAttribute("table",table);
