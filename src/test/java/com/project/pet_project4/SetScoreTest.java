@@ -1,6 +1,6 @@
 package com.project.pet_project4;
 
-import app.serviceMatch.matchesScoreCalculations.ExceptionScore;
+import app.serviceMatch.matchesScoreCalculations.ScoreException;
 import app.serviceMatch.matchesScoreCalculations.SetScore;
 import app.serviceMatch.matchesScoreCalculations.State;
 import org.junit.jupiter.api.Assertions;
@@ -14,14 +14,14 @@ public class SetScoreTest {
         setScore = new SetScore();
     }
     @Test
-    void SetScoreShouldThrowTest() throws ExceptionScore {
+    void Must_ThrowException_WhenTryingToContinueCompletedSetWithSixWonPoint() throws ScoreException {
         for (int i = 0; i < 7; i++) {
             setScore.pointWon(0);
         }
-        Assertions.assertThrows(ExceptionScore.class,() -> setScore.pointWon(0));
+        Assertions.assertThrows(ScoreException.class,() -> setScore.pointWon(0));
     }
     @Test
-    void stateShouldTieBreak() throws ExceptionScore {
+    void Must_SetScoreTieBreak_WhenSetScoreSixPointAgainstSixPoint() throws ScoreException {
         for (int i = 0; i < 6; i++) {
             setScore.pointWon(0);
             setScore.pointWon(1);

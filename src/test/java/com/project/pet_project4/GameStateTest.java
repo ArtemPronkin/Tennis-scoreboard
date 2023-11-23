@@ -1,6 +1,6 @@
 package com.project.pet_project4;
 
-import app.serviceMatch.matchesScoreCalculations.ExceptionScore;
+import app.serviceMatch.matchesScoreCalculations.ScoreException;
 import app.serviceMatch.matchesScoreCalculations.GameScore;
 import app.serviceMatch.matchesScoreCalculations.State;
 import org.junit.jupiter.api.Assertions;
@@ -14,7 +14,7 @@ public class GameStateTest {
         gameScore = new GameScore();
     }
     @Test
-    void AdvantageShouldNonStopTest() throws ExceptionScore {
+    void Must_GameStateOngoing_WhenGameScoreLeadIsLessOnePoint() throws ScoreException {
         for (int i = 0; i < 20; i++) {
             gameScore.pointWon(0);
             gameScore.pointWon(1);
@@ -24,14 +24,14 @@ public class GameStateTest {
         Assertions.assertEquals(gameScore.getState(),State.ONGOING);
     }
     @Test
-    void AdvantageShouldThrowTest() throws ExceptionScore {
+    void Must_ThrowException_WhenTryingToContinueCompletedGameWithFivePoint() throws ScoreException {
         for (int i = 0; i < 4; i++) {
             gameScore.pointWon(0);
         }
-        Assertions.assertThrows(ExceptionScore.class,()->gameScore.pointWon(0));
+        Assertions.assertThrows(ScoreException.class,()->gameScore.pointWon(0));
     }
     @Test
-    void GameShouldWon() throws ExceptionScore {
+    void Must_GameStatePlayerWon_WhenGameScoreFourPointAgainstZeroPoint() throws ScoreException {
         for (int i = 0; i < 4; i++) {
             gameScore.pointWon(0);
         }
