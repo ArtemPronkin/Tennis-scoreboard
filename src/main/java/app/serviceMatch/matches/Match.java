@@ -1,7 +1,7 @@
-package App.ServiceMatch.Matches;
+package app.serviceMatch.matches;
 
 
-import App.ServiceMatch.Player.Player;
+import app.serviceMatch.player.Player;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

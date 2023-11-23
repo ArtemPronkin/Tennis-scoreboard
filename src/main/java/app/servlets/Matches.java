@@ -1,6 +1,6 @@
-package App.Servlets;
+package app.servlets;
 
-import App.ServiceMatch.Matches.PageMatchesDTO;
+import app.serviceMatch.matches.PageMatchesDTO;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

@@ -1,12 +1,11 @@
-package App.ServiceMatch.Player;
+package app.serviceMatch.player;
 
 
-import App.Utils.SessionFactoryUtil;
+import app.utils.SessionFactoryUtil;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
 import java.util.Optional;
 
 

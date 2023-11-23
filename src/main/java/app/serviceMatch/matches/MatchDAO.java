@@ -1,6 +1,6 @@
-package App.ServiceMatch.Matches;
+package app.serviceMatch.matches;
 
-import App.Utils.SessionFactoryUtil;
+import app.utils.SessionFactoryUtil;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -1,7 +1,7 @@
-package App.Servlets;
+package app.servlets;
 
-import App.ServiceMatch.Matches.GameRepository;
-import App.ServiceMatch.MatchesScoreCalculations.ExceptionScore;
+import app.serviceMatch.matches.GameRepository;
+import app.serviceMatch.matchesScoreCalculations.ExceptionScore;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

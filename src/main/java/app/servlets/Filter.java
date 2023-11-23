@@ -1,4 +1,4 @@
-package App.Servlets;
+package app.servlets;
 
 import jakarta.servlet.*;
 

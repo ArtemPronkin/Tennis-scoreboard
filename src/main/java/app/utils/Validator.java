@@ -1,4 +1,4 @@
-package App.Utils;
+package app.utils;
 
 public class Validator {
 

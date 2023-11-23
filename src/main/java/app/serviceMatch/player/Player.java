@@ -1,4 +1,4 @@
-package App.ServiceMatch.Player;
+package app.serviceMatch.player;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

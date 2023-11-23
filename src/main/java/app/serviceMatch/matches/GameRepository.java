@@ -1,8 +1,8 @@
-package App.ServiceMatch.Matches;
+package app.serviceMatch.matches;
 
-import App.ServiceMatch.Player.PlayerDAO;
-import App.ServiceMatch.MatchesScoreCalculations.MatchScore;
-import App.ServiceMatch.MatchesScoreCalculations.State;
+import app.serviceMatch.player.PlayerDAO;
+import app.serviceMatch.matchesScoreCalculations.MatchScore;
+import app.serviceMatch.matchesScoreCalculations.State;
 import lombok.Data;
 
 import java.util.HashMap;

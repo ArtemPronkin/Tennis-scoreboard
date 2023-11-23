@@ -1,4 +1,4 @@
-package App.ServiceMatch.MatchesScoreCalculations;
+package app.serviceMatch.matchesScoreCalculations;
 
 public enum GameState {
     ZERO("0"),FIFTEEN("15"),THIRTY("30"),FOURTY("40"),ADVANTAGE("AD");

@@ -1,6 +1,6 @@
-package App.ServiceMatch.MatchesScoreCalculations;
+package app.serviceMatch.matchesScoreCalculations;
 
-import static App.ServiceMatch.MatchesScoreCalculations.State.ONGOING;
+import static app.serviceMatch.matchesScoreCalculations.State.ONGOING;
 
 public class TieBreak extends Score<Integer> {
 

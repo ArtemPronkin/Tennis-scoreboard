@@ -1,4 +1,4 @@
-package App.ServiceMatch.MatchesScoreCalculations;
+package app.serviceMatch.matchesScoreCalculations;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

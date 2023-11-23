@@ -1,10 +1,10 @@
-package App.Utils;
+package app.utils;
 
-import App.ServiceMatch.Matches.MatchDAO;
-import App.ServiceMatch.Player.PlayerDAO;
-import App.ServiceMatch.Matches.Match;
-import App.ServiceMatch.Player.Player;
-import App.ServiceMatch.Matches.PageMatchesDTO;
+import app.serviceMatch.matches.MatchDAO;
+import app.serviceMatch.player.PlayerDAO;
+import app.serviceMatch.matches.Match;
+import app.serviceMatch.player.Player;
+import app.serviceMatch.matches.PageMatchesDTO;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryUtil {

@@ -1,15 +1,15 @@
-package App.Servlets;
+package app.servlets;
 
-import App.ServiceMatch.Player.PlayerDAO;
-import App.ServiceMatch.Player.Player;
-import App.ServiceMatch.Matches.GameRepository;
+import app.serviceMatch.player.PlayerDAO;
+import app.serviceMatch.player.Player;
+import app.serviceMatch.matches.GameRepository;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-import static App.Utils.Validator.playerValid;
+import static app.utils.Validator.playerValid;
 
 @WebServlet(name = "NewMatch", value = "/NewMatch")
 public class NewMatch extends HttpServlet {

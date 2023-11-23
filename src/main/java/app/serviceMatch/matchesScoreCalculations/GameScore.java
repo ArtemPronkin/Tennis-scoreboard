@@ -1,4 +1,4 @@
-package App.ServiceMatch.MatchesScoreCalculations;
+package app.serviceMatch.matchesScoreCalculations;
 
 public class GameScore extends Score<GameState>{
     @Override
