@@ -1,7 +1,7 @@
 package app.servlets;
 
 import app.serviceMatch.matches.GameRepository;
-import app.serviceMatch.matchesScoreCalculations.ExceptionScore;
+import app.serviceMatch.matchesScoreCalculations.ScoreException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,8 +22,8 @@ public class MatchScore extends HttpServlet {
         var match = GameRepository.getMatch(uuid);
         request.setAttribute("uuid", nameMatch);
         request.setAttribute("match", match);
-        request.setAttribute("player1",GameRepository.getPlayer1(uuid));
-        request.setAttribute("player2",GameRepository.getPlayer2(uuid));
+        request.setAttribute("player1", GameRepository.getPlayer1(uuid));
+        request.setAttribute("player2", GameRepository.getPlayer2(uuid));
         getServletContext().getRequestDispatcher("/view/match.jsp").forward(request, response);
     }
 
@@ -44,14 +44,14 @@ public class MatchScore extends HttpServlet {
                 match.pointWon(1);
             }
 
-        } catch (ExceptionScore e) {
+        } catch (ScoreException e) {
             response.getWriter().write(e.getMessage());
         }
         if (win.equals("end")) {
             GameRepository.endMatch(UUID.fromString(nameMatch));
-            response.sendRedirect(request.getContextPath()+"/");
+            response.sendRedirect(request.getContextPath() + "/");
             return;
         }
-        doGet(request,response);
+        doGet(request, response);
     }
 }

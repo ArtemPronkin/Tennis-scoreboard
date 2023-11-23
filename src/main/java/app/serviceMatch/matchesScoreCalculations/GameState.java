@@ -8,7 +8,7 @@ public enum GameState {
     }
 
 
-    public GameState next() throws ExceptionScore {
+    public GameState next() throws ScoreException {
         return  GameState.values()[this.ordinal() + 1];
     }
 

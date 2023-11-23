@@ -27,8 +27,6 @@ public class SessionFactoryUtil {
         return SingletonHolder.HOLDER_INSTANCE.sessionFactory;
     }
 
-
-    //demo        private static final PlayerDao playerDao = new PlayerDao();
     static {
         Player player1 = new Player("К. АЛЬКАРАС");
         Player player2 = new Player("Ф. КОБОЛЛИ");

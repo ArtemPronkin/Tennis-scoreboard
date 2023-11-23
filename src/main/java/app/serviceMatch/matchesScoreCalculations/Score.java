@@ -33,5 +33,5 @@ public abstract class Score<T> {
     public void setOppositePlayerScore(int playerNumber , T score){
         playersScore.set(playerNumber == 0 ? 1 : 0,score);
     }
-    abstract void pointWon(int playerNumber) throws ExceptionScore;
+    abstract void pointWon(int playerNumber) throws ScoreException;
 }

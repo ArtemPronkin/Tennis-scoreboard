@@ -2,7 +2,7 @@ package app.serviceMatch.matchesScoreCalculations;
 
 import static app.serviceMatch.matchesScoreCalculations.State.ONGOING;
 
-public class TieBreak extends Score<Integer> {
+public class TieBreakScore extends Score<Integer> {
 
     @Override
     protected Integer getZeroScore() {
@@ -10,10 +10,10 @@ public class TieBreak extends Score<Integer> {
     }
 
     @Override
-    public void pointWon(int playerNumber) throws ExceptionScore {
+    public void pointWon(int playerNumber) throws ScoreException {
 
         if (!getState().equals(ONGOING)) {
-            throw new ExceptionScore("Тай-брейк закончен");
+            throw new ScoreException("Тай-брейк закончен");
         }
 
         var currentScorePlayer = this.getPlayerScore(playerNumber);

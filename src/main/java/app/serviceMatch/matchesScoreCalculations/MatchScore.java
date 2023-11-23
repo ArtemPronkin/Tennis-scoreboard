@@ -17,7 +17,7 @@ public class MatchScore extends Score<Integer> {
 
     private Integer currentNumberSet = 0;
 
-    private TieBreak tieBreak = new TieBreak();
+    private TieBreakScore tieBreakScore = new TieBreakScore();
 
     private List<SetScore> setList = Arrays.asList(new SetScore(), new SetScore(), new SetScore());
 
@@ -31,16 +31,16 @@ public class MatchScore extends Score<Integer> {
     }
 
     @Override
-    public void pointWon(int playerNumber) throws ExceptionScore {
+    public void pointWon(int playerNumber) throws ScoreException {
         if (!this.getState().equals(ONGOING)) {
-            throw new ExceptionScore("Матч закончен");
+            throw new ScoreException("Матч закончен");
         }
         SetScore currentSet = getSetList().get(currentNumberSet);
 
         if (currentSet.getState().equals(TIE_BREAK)) {
-            tieBreak.pointWon(playerNumber);
-            if (tieBreak.getState().equals(PLAYER_TWO_WON) || tieBreak.getState().equals(PLAYER_ONE_WON)) {
-                currentSet.setState(tieBreak.getState());
+            tieBreakScore.pointWon(playerNumber);
+            if (tieBreakScore.getState().equals(PLAYER_TWO_WON) || tieBreakScore.getState().equals(PLAYER_ONE_WON)) {
+                currentSet.setState(tieBreakScore.getState());
             }
         } else {
             gameScore.pointWon(playerNumber);
@@ -62,7 +62,7 @@ public class MatchScore extends Score<Integer> {
             }
 
             currentNumberSet++;
-            tieBreak = new TieBreak();
+            tieBreakScore = new TieBreakScore();
         }
     }
 

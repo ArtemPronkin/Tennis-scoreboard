@@ -34,8 +34,9 @@
     var list = match.getSetList();
     var curSet = match.getCurrentNumberSet();
     Score game = match.getGameScore();
+    if (curSet>2) curSet = 2;
     if (list.get(curSet).getState().equals(State.TIE_BREAK)) {
-        game = match.getTieBreak();
+        game = match.getTieBreakScore();
     }
 
 %>
@@ -48,8 +49,8 @@
 } else {
     out.print("<h3>Матч завершен</h3>");
     if (match.getState().equals(State.PLAYER_ONE_WON)) {
-        out.print("<h3>Выиграл игрок : " + request.getAttribute("player2") + " </h3>");
-    } else out.print("<h3>Выиграл игрок : " + request.getAttribute("player1") + " </h3>");
+        out.print("<h3>Выиграл игрок : " + request.getAttribute("player1") + " </h3>");
+    } else out.print("<h3>Выиграл игрок : " + request.getAttribute("player2") + " </h3>");
 
 }%>
 

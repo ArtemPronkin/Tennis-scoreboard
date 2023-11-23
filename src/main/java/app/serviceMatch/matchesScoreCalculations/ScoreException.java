@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ExceptionScore extends Exception {
+public class ScoreException extends Exception {
     String message;
 }

@@ -27,29 +27,6 @@ public class PlayerDAO {
             session.close();
         }
     }
-//    public static List<Player> getAll() {
-//        List<Player> players = null;
-//        Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession();
-//        try {
-//            session.beginTransaction();
-//            players = session.createQuery("FROM Player").getResultList();
-//            session.getTransaction().commit();
-//        }catch (RuntimeException e){
-//            e.printStackTrace();
-//        }finally {
-//            session.close();
-//        }
-//        return players;
-//    }
-//    public static Optional<Player>getByID (int id){
-//        Optional<Player> player = null;
-//        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
-//            session.beginTransaction();
-//            player = Optional.ofNullable(session.get(Player.class, id));
-//            session.getTransaction().commit();
-//        }
-//        return player;
-//    }
     public static Optional<Player>getByName (String name){
         Optional<Player> player = null;
         try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {

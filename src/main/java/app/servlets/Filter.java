@@ -15,7 +15,6 @@ public class Filter implements jakarta.servlet.Filter {
 
         servletRequest.setCharacterEncoding("UTF-8");
         servletResponse.setCharacterEncoding("UTF-8");
-        servletResponse.setContentType("application/json");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

@@ -7,9 +7,9 @@ public class GameScore extends Score<GameState>{
     }
 
     @Override
-    public void pointWon(int playerNumber) throws ExceptionScore {
+    public void pointWon(int playerNumber) throws ScoreException {
         if (!getState().equals(State.ONGOING)){
-            throw new ExceptionScore("Гейм закончен");
+            throw new ScoreException("Гейм закончен");
         }
 
         var currentScorePlayer = this.getPlayerScore(playerNumber);

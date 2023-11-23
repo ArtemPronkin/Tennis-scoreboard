@@ -9,7 +9,7 @@ public class SetScore extends Score<Integer> {
     }
 
     @Override
-    public void pointWon(int playerNumber) throws ExceptionScore {
+    public void pointWon(int playerNumber) throws ScoreException {
 
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
 
@@ -17,7 +17,7 @@ public class SetScore extends Score<Integer> {
         var oppositeScorePlayer = this.getOppositePlayerScore(playerNumber);
 
         if (currentScorePlayer == 8) {
-            throw new ExceptionScore("Сет закончен");
+            throw new ScoreException("Сет закончен");
         } else if (currentScorePlayer == 6 && oppositeScorePlayer <= 4) {
             setState(State.values()[playerNumber]);
         } else if (currentScorePlayer == 6 && oppositeScorePlayer == 6) {

@@ -18,24 +18,4 @@ public class MatchDAO {
             transaction.commit();
         }
     }
-//    public static Optional<Match> getById(int id) {
-//        Optional<Match>match = Optional.empty();
-//        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
-//            session.beginTransaction();
-//            match = Optional.ofNullable(session.get(Match.class, id));
-//            session.getTransaction().commit();
-//        }
-//        return match;
-//    }
-//    public static List<Match> getAll() {
-//        List<Match> matches = null;
-//        try (Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession()) {
-//            session.beginTransaction();
-//            matches = session.createQuery("FROM Matches ").getResultList();
-//            session.getTransaction().commit();
-//        }
-//        return matches;
-//    }
-
-
 }
